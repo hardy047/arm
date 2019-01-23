@@ -2,11 +2,11 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "updateNicName": {
-          "type": "securestring",
-          "defaultValue": "updateNic",
+      "nicName": {
+          "type": "string",
+          "defaultValue": "nic",
           "metadata": {
-              "description": "update nic name"
+              "description": "nic name"
           }
       }
   },
@@ -33,7 +33,7 @@
     {
         "apiVersion": "2015-06-15",
         "type":"Microsoft.Network/networkInterfaces",
-        "name":"[parameters('updateNicName')]",
+        "name":"[parameters('nicName')]",
         "location":"[resourceGroup().location]",
         "dependsOn": [
             "firstVNet"
