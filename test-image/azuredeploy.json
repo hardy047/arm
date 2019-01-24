@@ -6,7 +6,7 @@
           "type": "securestring",
           "defaultValue": "updateNic",
           "metadata": {
-              "description": "update nic name"
+              "description": "update nic name1"
           }
       }
   },
