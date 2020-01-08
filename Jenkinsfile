@@ -32,13 +32,13 @@ spec:
             container('alpine') {
                 sh 'echo "Checkout Workspace"'
             }
-        },
+        }
         stage('Sanity Checks') {
              parallel copyright: {
                      container('alpine') {
                          sh 'echo "copyright checks"'
                      }            
-              },
+              }
               swagger-validation: {
                      container('alpine') {
                          sh 'echo "swagger checks"'
