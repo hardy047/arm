@@ -28,7 +28,7 @@ spec:
 """
   ) {
     node(label) {
-        stage('checkout-workspace') {
+        stage('Checkout Workspace') {
             container('alpine') {
                 sh 'echo "Checkout Workspace"'
             }
@@ -50,6 +50,45 @@ spec:
                          sh 'echo "go vendor"'
                      }            
               })
+        }
+        stage('Tests') {
+             parallel (
+               lint: {
+                     container('alpine') {
+                         sh 'echo "lint test"'
+                     }            
+              },
+               unit_test: {
+                     container('alpine') {
+                         sh 'echo "unit tests"'
+                     }            
+              })
+        }
+        stage('Build') {
+             parallel (
+               build: {
+                     container('alpine') {
+                         sh 'echo "build"'
+                     }            
+              },
+               code_quality: {
+                     container('alpine') {
+                         sh 'echo "code quality"'
+                     }            
+              })
+        }
+        stage('Functional Tests') {
+            container('alpine') {
+                sh 'echo "Checkout Workspace"'
+            }
+        }
+        stage('Deploy') {
+            when {
+               branch 'master'
+            }
+            container('alpine') {
+                sh 'echo "Checkout Workspace"'
+            }
         }
     }
 }
