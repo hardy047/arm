@@ -32,25 +32,23 @@ spec:
             container('alpine') {
                 sh 'echo "Checkout Workspace"'
             }
-        }
+        },
         stage('Sanity Checks') {
-             parallel {
-                 stage('copyright') {
+             parallel copyright: {
                      container('alpine') {
                          sh 'echo "copyright checks"'
                      }            
-                 }
-                 stage('swagger-validation') {
+              },
+              swagger-validation: {
                      container('alpine') {
                          sh 'echo "swagger checks"'
                      }            
-                 }
-                 stage('go-vendor') {
+              }
+              go-vendor: {
                      container('alpine') {
                          sh 'echo "go vendor"'
                      }            
-                 }
-             }
+              }
         }
     }
 }
