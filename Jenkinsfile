@@ -82,13 +82,12 @@ spec:
                 sh 'echo "Checkout Workspace"'
             }
         }
+        if (env.BRANCH_NAME == "master") {
         stage('Deploy') {
-            when {
-               branch 'master'
-            }
             container('alpine') {
                 sh 'echo "Checkout Workspace"'
             }
+          }
         }
     }
 }
