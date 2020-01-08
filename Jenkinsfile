@@ -79,13 +79,13 @@ spec:
         }
         stage('Functional Tests') {
             container('alpine') {
-                sh 'echo "Checkout Workspace"'
+                sh 'echo "Functional Tests"'
             }
         }
         if (env.BRANCH_NAME == "master") {
         stage('Deploy') {
             container('alpine') {
-                sh 'echo "Checkout Workspace"'
+                sh 'echo "Deploy"'
             }
           }
         }
