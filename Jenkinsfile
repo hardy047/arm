@@ -34,21 +34,22 @@ spec:
             }
         }
         stage('Sanity Checks') {
-             parallel copyright: {
+             parallel (
+               copyright: {
                      container('alpine') {
                          sh 'echo "copyright checks"'
                      }            
               }
-              swagger-validation: {
+                swagger-validation: {
                      container('alpine') {
                          sh 'echo "swagger checks"'
                      }            
               }
-              go-vendor: {
+                go-vendor: {
                      container('alpine') {
                          sh 'echo "go vendor"'
                      }            
-              }
+              })
         }
     }
 }
