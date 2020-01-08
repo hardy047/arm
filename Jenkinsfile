@@ -40,12 +40,12 @@ spec:
                          sh 'echo "copyright checks"'
                      }            
               }
-                swagger-validation: {
+               swagger_validation: {
                      container('alpine') {
                          sh 'echo "swagger checks"'
                      }            
               }
-                go-vendor: {
+                go_vendor: {
                      container('alpine') {
                          sh 'echo "go vendor"'
                      }            
