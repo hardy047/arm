@@ -5,7 +5,7 @@ def home = "/home/jenkins"
 def workspace = "${home}/workspace/build-jenkins-operator"
 def workdir = "${workspace}/src/github.com/jenkinsci/kubernetes-operator/"
 
-podTemplate(yaml: """
+podTemplate(label: label, yaml: """
 apiVersion: v1
 kind: Pod
 spec:
