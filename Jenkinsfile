@@ -39,12 +39,12 @@ spec:
                      container('alpine') {
                          sh 'echo "copyright checks"'
                      }            
-              }
+              },
                swagger_validation: {
                      container('alpine') {
                          sh 'echo "swagger checks"'
                      }            
-              }
+              },
                 go_vendor: {
                      container('alpine') {
                          sh 'echo "go vendor"'
